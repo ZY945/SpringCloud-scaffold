@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.scaffold</groupId>
+    <artifactId>SpringCloud-scaffold</artifactId>
+    <version>${revision}</version>
+
+    <packaging>pom</packaging>
+
+    <!--Non-resolvable parent POM for com.scaffold:scaffold-gateway:1.0-SNAPSHOT: Could not find artifact com.scaffold:scaffold:pom:1.0-SNAPSHOT and 'parent.relativePath' points at wrong local POM-->
+    <!--如果clean - install报错,就先注释下面的modules然后去进行clean - install操作-->
+    <!--成功后在放开注释-->
+    <modules>
+        <module>SpringCloud-commons</module>
+        <module>SpringCloud-app</module>
+        <module>SpringCloud-gateway</module>
+        <module>SpringCloud-ui</module>
+        <module>SpringCloud-admin</module>
+        <module>SpringCloud-generate</module>
+        <module>SpringCloud-commons/SpringCloud-commons-redis</module>
+        <module>SpringCloud-commons/SpringCloud-commons-utils</module>
+        <module>SpringCloud-commons/SpringCloud-commons-mybatis</module>
+        <module>SpringCloud-commons/SpringCloud-commons-feign</module>
+        <module>SpringCloud-commons/SpringCloud-commons-core</module>
+        <module>SpringCloud-commons/SpringCloud-commons-elasticsearch</module>
+    </modules>
+
+    <properties>
+        <revision>1.0-SNAPSHOT</revision>
+        <java.vesrion>11</java.vesrion>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <spring.boot.version>2.7.18</spring.boot.version>
+        <spring.cloud.version>2021.0.9</spring.cloud.version>
+        <spring.cloud.alibaba.version>2021.0.6.0</spring.cloud.alibaba.version>
+    </properties>
+    <dependencyManagement>
+        <dependencies>
+            <!-- SpringBoot的依赖配置-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- SpringCloud的依赖配置-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- SpringCloudAlibaba的依赖配置-->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring.cloud.alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>1.2.83</version>
+                <scope>compile</scope>
+            </dependency>
+
+            <!--智谱AI-->
+            <dependency>
+                <groupId>cn.bigmodel.openapi</groupId>
+                <artifactId>oapi-java-sdk</artifactId>
+                <version>release-V4-2.0.2</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/com.alibaba/dashscope-sdk-java -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>dashscope-sdk-java</artifactId>
+                <version>2.14.8</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>3.5.6</version>
+            </dependency>
+
+            <!--        项目子模块管理        -->
+            <dependency>
+                <groupId>com.scaffold</groupId>
+                <artifactId>SpringCloud-commons-core</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.scaffold</groupId>
+                <artifactId>SpringCloud-commons-elasticsearch</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.scaffold</groupId>
+                <artifactId>SpringCloud-commons-feign</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.scaffold</groupId>
+                <artifactId>SpringCloud-commons-mybatis</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.scaffold</groupId>
+                <artifactId>SpringCloud-commons-redis</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.scaffold</groupId>
+                <artifactId>SpringCloud-commons-utils</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!--        项目子模块管理        -->
+        </dependencies>
+    </dependencyManagement>
+</project>
