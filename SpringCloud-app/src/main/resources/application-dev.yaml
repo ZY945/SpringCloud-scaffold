@@ -1,6 +1,6 @@
 logging:
   level:
-    com.infobridge.bridge.fegin.UserService: DEBUG
+    com.scaffold.fegin.UserService: DEBUG
   # DataSource Config
   datasource:
     driver-class-name: org.h2.Driver

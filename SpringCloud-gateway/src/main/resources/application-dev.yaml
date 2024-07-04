@@ -2,12 +2,13 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: first_route
-          uri: lb://first-service
-          predicates:
-            - Path=/first-service/**
+        - id: user           # 路由的唯一标识
+          uri: http://localhost:8081  # 如果断言成功，将要转发去的地址
+          order: 0                    # 优先级，越小优先级越高
+          predicates: # 断言，满足所有断言，才会进行转发
+            - Path=/user/**        # 注意：这是使用= 不是：
           filters:
-            - AddRequestHeader=X-Request-Foo, bar
+            - StripPrefix=1 # #转发请求时去掉1级前缀，去掉端口后的第一个节点，这里是client
 ---
 spring:
   application:
@@ -20,3 +21,5 @@ spring:
     username: root
     password: root
 
+info-bridge-feign:
+  user-service-url: http://localhost:8081

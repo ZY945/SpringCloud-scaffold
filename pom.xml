@@ -18,7 +18,7 @@
         <module>SpringCloud-app</module>
         <module>SpringCloud-gateway</module>
         <module>SpringCloud-ui</module>
-        <module>SpringCloud-admin</module>
+        <module>SpringCloud-user</module>
         <module>SpringCloud-generate</module>
         <module>SpringCloud-commons/SpringCloud-commons-redis</module>
         <module>SpringCloud-commons/SpringCloud-commons-utils</module>
