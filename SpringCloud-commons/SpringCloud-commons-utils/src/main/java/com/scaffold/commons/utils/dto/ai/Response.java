@@ -33,6 +33,6 @@ public class Response {
     }
 
     public String getCreatedTime() {
-        return TimeUtil.getCurrentTime(data.getCreated());
+        return TimeUtil.getFormatDateStr(data.getCreated());
     }
 }
