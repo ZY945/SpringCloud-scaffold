@@ -4,11 +4,7 @@ import com.scaffold.commons.utils.vo.Result;
 import com.scaffold.gateway.client.AuthWebClient;
 import com.scaffold.gateway.client.FeignClient;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.reactive.function.client.ClientResponse;
 import reactor.core.publisher.Mono;
 
@@ -45,16 +41,12 @@ public class UserReactiveClient implements AuthService {
         Map<String, String> params = new HashMap<>();
 //        params.put("limit", "10");
 
-        MultiValueMap<String, String> body = new LinkedMultiValueMap<>();
-        body.add("token", token);
-        return feignClient.restMono(
+        HashMap<String, Object> body = new HashMap<>();
+        body.put("token", token);
+        return feignClient.restMonoPostJson(
                 authWebClient.getWebClient(),
-                HttpMethod.POST,
                 url,
-                params,
                 body,
-                MediaType.APPLICATION_JSON,
-                MediaType.APPLICATION_JSON,
                 Result.class,
                 UserReactiveClient::handleUnsuccessfulResponse
         );

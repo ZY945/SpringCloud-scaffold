@@ -1,5 +1,7 @@
 package com.scaffold.gateway.config;
 
+import com.alibaba.fastjson2.JSON;
+import com.alibaba.fastjson2.JSONObject;
 import com.scaffold.commons.utils.vo.Result;
 import com.scaffold.gateway.fegin.AuthService;
 import com.scaffold.gateway.util.TraceIdUtil;
@@ -94,7 +96,8 @@ public class GateWayConfig implements GlobalFilter, Ordered {
         //2. 进行 权限认证的 逻辑
         String finalToken = token;
         return this.authenticate(token).flatMap(result -> {
-            if (result.getCode() == 200 && result.getData().toString().startsWith("admin")) {
+            JSONObject dataJson = JSON.parseObject(JSON.toJSONString(result.getData()));
+            if (result.getCode() == 200 && dataJson.getList("roles", String.class).contains("admin")) {
                 // 通过校验
                 // 把链路ID存放在头信息转发下去，并且放行
                 String traceId = TraceIdUtil.buildTraceId();

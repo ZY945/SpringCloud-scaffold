@@ -25,6 +25,14 @@ public class AuthWebClient {
         this.webClient = WebClient.builder()
 //                .filter(lbFunction)
                 .baseUrl(authUrl) // TODO 这里可以配置为公共的baseUrl，也可以在调用方法中传入
+//                .filter((request, next) ->
+//                        next.exchange(request).map(response -> {
+//                            Flux<DataBuffer> body = response.body(BodyExtractors.toDataBuffers());
+//                            return ClientResponse.from(response)    //'from(org.springframework.web.reactive.function.client.ClientResponse)' 已弃用
+//                                    .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+//                                    .body(body)
+//                                    .build();
+//                        }))
                 // 默认请求头
 //                .defaultHeader(WEB_CLIENT_HEADER, WEB_CLIENT_HEADER_VALUE)
                 .build();

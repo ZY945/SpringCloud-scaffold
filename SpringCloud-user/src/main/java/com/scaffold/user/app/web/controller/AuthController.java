@@ -1,10 +1,15 @@
 package com.scaffold.user.app.web.controller;
 
+import com.scaffold.commons.utils.vo.Result;
 import com.scaffold.user.empty.dto.AuthDTO;
+import com.scaffold.user.empty.vo.AuthUserVO;
+import org.assertj.core.util.Lists;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Objects;
 
 /**
  * @author dongfeng
@@ -14,8 +19,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/auth")
 public class AuthController {
 
-    @PostMapping("/user")
-    public String authUser(@RequestBody AuthDTO authDTO) {
-        return "admin:" + authDTO.getToken();
+    @PostMapping(path = "/user")
+    public Result<AuthUserVO> authUser(@RequestBody AuthDTO authDTO) {
+        AuthUserVO authUserVO = new AuthUserVO();
+        if (!Objects.isNull(authDTO.getToken())) {
+            authUserVO.setRoles(Lists.newArrayList("admin", "user"));
+        }
+        return Result.success(authUserVO);
     }
 }

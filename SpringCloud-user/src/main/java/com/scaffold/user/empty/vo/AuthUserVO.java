@@ -1,19 +1,20 @@
-package com.scaffold.user.empty.dto;
+package com.scaffold.user.empty.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * @author dongfeng
- * 2024-07-05 0:26
+ * 2024-07-06 17:27
  */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class AuthDTO implements Serializable {
+public class AuthUserVO implements Serializable {
     private static final long serialVersionUID = 1L;
-    private String token;
+    private List<String> roles;
 }
