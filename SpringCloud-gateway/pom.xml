@@ -18,11 +18,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <dependencies>
-        <dependency>
-            <groupId>com.scaffold</groupId>
-            <artifactId>SpringCloud-commons-aop</artifactId>
-        </dependency>
-
+        
         <dependency>
             <groupId>com.scaffold</groupId>
             <artifactId>SpringCloud-commons-mybatis</artifactId>
