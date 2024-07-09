@@ -1,7 +1,6 @@
 package com.scaffold.gateway;
 
 
-import com.scaffold.commons.aop.LogAOP;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.redis.core.HashOperations;
@@ -18,7 +17,6 @@ public class RedisTemplateTest {
 
 
     @Test
-    @LogAOP(moduleName = "RedisTemplateTest", printTime = false)
     public void add() {
         HashOperations<String, String, String> opsForHash = redisTemplate.opsForHash();
 
