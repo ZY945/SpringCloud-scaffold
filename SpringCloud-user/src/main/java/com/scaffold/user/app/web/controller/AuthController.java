@@ -1,5 +1,6 @@
 package com.scaffold.user.app.web.controller;
 
+import com.scaffold.commons.aop.LogAOP;
 import com.scaffold.commons.utils.vo.Result;
 import com.scaffold.user.empty.dto.AuthDTO;
 import com.scaffold.user.empty.vo.AuthUserVO;
@@ -20,6 +21,7 @@ import java.util.Objects;
 public class AuthController {
 
     @PostMapping(path = "/user")
+    @LogAOP(moduleName = "RedisTemplateTest", printTime = false)
     public Result<AuthUserVO> authUser(@RequestBody AuthDTO authDTO) {
         AuthUserVO authUserVO = new AuthUserVO();
         if (!Objects.isNull(authDTO.getToken())) {

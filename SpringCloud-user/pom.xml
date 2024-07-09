@@ -12,6 +12,10 @@
     <packaging>jar</packaging>
     <artifactId>SpringCloud-user</artifactId>
     <dependencies>
+        <dependency>
+            <groupId>com.scaffold</groupId>
+            <artifactId>SpringCloud-commons-aop</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>com.scaffold</groupId>
@@ -49,8 +53,19 @@
             <scope>runtime</scope>
         </dependency>
 
-    </dependencies>
+        <!-- Spring Boot Starter Web -->
 
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!--低版本是spring-boot-starter-log4j-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-log4j2</artifactId>
+        </dependency>
+
+    </dependencies>
 
 
     <build>

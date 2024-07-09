@@ -7,7 +7,7 @@ target/
 /.idea
 /data/bridge.mv.db
 /InfoBridge-UI/node_modules
-
+/service-logs
 
 ### IntelliJ IDEA ###
 .idea/modules.xml

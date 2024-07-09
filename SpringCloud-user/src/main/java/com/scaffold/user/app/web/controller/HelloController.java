@@ -1,6 +1,7 @@
 package com.scaffold.user.app.web.controller;
 
 
+import com.scaffold.commons.aop.LogAOP;
 import com.scaffold.commons.utils.vo.Result;
 import com.scaffold.user.empty.dto.HelloDTO;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,6 +23,7 @@ public class HelloController {
      * 测试
      */
     @PostMapping("/1")
+    @LogAOP(moduleName = "RedisTemplateTest", printTime = true)
     public Result<?> hello1() {
         return Result.success("测试");
     }

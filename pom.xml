@@ -26,6 +26,7 @@
         <module>SpringCloud-commons/SpringCloud-commons-feign</module>
         <module>SpringCloud-commons/SpringCloud-commons-core</module>
         <module>SpringCloud-commons/SpringCloud-commons-elasticsearch</module>
+        <module>SpringCloud-commons/SpringCloud-commons-aop</module>
     </modules>
 
     <properties>
@@ -102,6 +103,11 @@
             </dependency>
 
             <!--        项目子模块管理        -->
+            <dependency>
+                <groupId>com.scaffold</groupId>
+                <artifactId>SpringCloud-commons-aop</artifactId>
+                <version>${revision}</version>
+            </dependency>
             <dependency>
                 <groupId>com.scaffold</groupId>
                 <artifactId>SpringCloud-commons-core</artifactId>
